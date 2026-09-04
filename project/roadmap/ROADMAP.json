@@ -16,7 +16,7 @@
           "Дата_начала": "2026-09-03T23:50:32Z",
           "Дата_завершения": "2026-09-04T00:07:45Z",
           "Ветка": "TASK-000",
-          "Коммит": null,
+          "Коммит": "0225c07",
           "Результат_тестов": "PASS (qa-engineer): docker compose run --rm app php artisan --version; migrate:status; vendor/bin/pint --test; php artisan test — успешно, 2 теста пройдены.",
           "Результат_ревью": "APPROVE (code-reviewer): реализация соответствует TASK-000, лишний прикладной код и API отсутствуют; APPROVE (security-reviewer): секреты и ПДн в репозиторий не попали, .env.example не содержит секрета; ARCHITECTURE_APPROVED (architecture-guardian): сохранены границы монолита Laravel/PostgreSQL/Vue/Redis."
         },
