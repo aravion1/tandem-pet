@@ -85,7 +85,7 @@
           "Дата_начала": "2026-09-04T09:59:46Z",
           "Дата_завершения": "2026-09-04T10:57:54Z",
           "Ветка": "TASK-004",
-          "Коммит": null,
+          "Коммит": "70f1144",
           "Результат_тестов": "PASS (qa-engineer): изолированный Docker PostgreSQL 17/Redis/Laravel/Vue/queue поднят; Redis worker обработал QueueHealthCheck; backup восстановлен в чистую БД; Laravel — 23 passed; Pint и PHP syntax — успешно.",
           "Результат_ревью": "APPROVE (code-reviewer); APPROVE (security-reviewer): секреты только из .env, приватный volume, executables запрещены; ARCHITECTURE_APPROVED (architecture-guardian): PostgreSQL/Redis/Vue/Laravel разделены сервисами; OBSERVABILITY_APPROVED (observability-engineer): worker фиксирует выполнение job, проверяется health key. Риск неограниченного объёма файлов принят пользователем и документирован."
         }
