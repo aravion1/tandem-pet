@@ -14,6 +14,7 @@ Route::prefix('auth')->group(function (): void {
 });
 
 Route::middleware(['auth:sanctum'])->group(function (): void {
+    Route::get('auth/me', [AuthController::class, 'currentUser']);
     Route::post('users/import', [ResidentController::class, 'import'])->middleware('permission:users.manage');
     Route::patch('users/{user}/phone', [ResidentController::class, 'changePhone'])->middleware('permission:users.manage');
 

@@ -11,6 +11,7 @@ use App\Services\AuditLogger;
 use App\Services\OneTimeCodeService;
 use App\Services\PhoneService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Symfony\Component\HttpKernel\Exception\TooManyRequestsHttpException;
@@ -104,6 +105,19 @@ class AuthController extends Controller
         $this->audit->record($user->id, 'user.password_reset', 'user', $user->id);
 
         return response()->json(['token' => $user->createToken('api')->plainTextToken, 'token_type' => 'Bearer']);
+    }
+
+    public function currentUser(Request $request): JsonResponse
+    {
+        /** @var User $user */
+        $user = $request->user();
+        $user->loadMissing('roles.permissions');
+
+        return response()->json([
+            'id' => $user->id,
+            'roles' => $user->roles->map(fn ($role): array => ['id' => $role->id, 'name' => $role->name])->values(),
+            'permissions' => $user->roles->flatMap->permissions->pluck('code')->unique()->values(),
+        ]);
     }
 
     private function findUser(string $normalizedPhone): ?User

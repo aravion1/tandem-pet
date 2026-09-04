@@ -122,6 +122,27 @@ class AuthenticationApiTest extends TestCase
         $this->withToken($token)->postJson('/api/users/import', ['residents' => []])->assertForbidden();
     }
 
+    public function test_current_user_endpoint_returns_only_roles_and_effective_permissions(): void
+    {
+        $user = $this->activateResident('+79990001122');
+        $roleId = DB::table('roles')->where('name', 'Председатель правления')->value('id');
+        DB::table('user_roles')->insert(['user_id' => $user->id, 'role_id' => $roleId]);
+
+        $this->withToken($user->createToken('api')->plainTextToken)
+            ->getJson('/api/auth/me')
+            ->assertOk()
+            ->assertJsonPath('id', $user->id)
+            ->assertJsonFragment(['name' => 'Житель'])
+            ->assertJsonFragment(['id' => $roleId, 'name' => 'Председатель правления'])
+            ->assertJsonPath('permissions.0', 'roles.manage')
+            ->assertJsonMissing(['phone', 'phone_hash', 'phone_ciphertext', 'password_hash']);
+    }
+
+    public function test_current_user_endpoint_rejects_guests(): void
+    {
+        $this->getJson('/api/auth/me')->assertUnauthorized();
+    }
+
     public function test_authorized_user_can_import_residents_and_manage_roles(): void
     {
         $manager = $this->activateResident('+79990001122');
