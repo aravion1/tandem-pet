@@ -5,3 +5,8 @@ services:
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
+  node:
+    image: node:24-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
