@@ -67,7 +67,7 @@
           "Дата_начала": "2026-09-04T09:10:40Z",
           "Дата_завершения": "2026-09-04T09:48:25Z",
           "Ветка": "TASK-003",
-          "Коммит": null,
+          "Коммит": "8285f62",
           "Результат_тестов": "PASS (qa-engineer): Docker npm run build; Vitest — 4 UI-теста пройдены; Laravel php artisan test — 18 passed, 1 PostgreSQL-only test skipped на SQLite.",
           "Результат_ревью": "APPROVE (code-reviewer); APPROVE (security-reviewer): токен только в sessionStorage, пароль и SMS-код не сохраняются; CONTRACT_APPROVED (api-contract-reviewer); UX_A11Y_APPROVED (ux-accessibility-reviewer): mobile-first формы, labels, ошибки и скрытие запрещённых действий."
         },
