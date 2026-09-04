@@ -16,6 +16,8 @@ Backend
 
 Используются сущности TASK-001. Телефон перед сохранением нормализуется, хешируется SHA-256 для поиска и шифруется средствами приложения. Пароли обрабатываются только безопасным password hash. Токен сессии не содержит прав; они проверяются сервером.
 
+API использует Laravel Sanctum и Bearer token. Одноразовый SMS-код состоит из 6 цифр, хранится только в виде хеша, действует 10 минут и допускает 5 попыток. Запрос кода ограничен тремя попытками за 15 минут на номер. До выбора провайдера используется тестовый адаптер SMS. Первого председателя создаёт одноразовая консольная команда; он активируется по обычному SMS-сценарию.
+
 ## Эндпоинты
 
 `POST /api/auth/activation/request {phone}` — 202 только для импортированной неактивированной записи; `POST /api/auth/activation/confirm {phone,code,password,consent_version}` — 200; `POST /api/auth/login {phone,password}` — 200 с токеном; `POST /api/auth/password/reset/request {phone}` и `POST /api/auth/password/reset/confirm {phone,code,password}` — 202/200. `POST /api/users/import` (`users.manage`) принимает массив `{phone,street,house}`. `PATCH /api/users/{id}/phone` (`users.manage`). `GET/POST/PATCH/DELETE /api/roles` и `PUT /api/roles/{id}/permissions` требуют `roles.manage`. Ошибки: 401, 403, 409, 422; не раскрывать существование номера в ответах восстановления.

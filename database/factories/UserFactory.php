@@ -4,8 +4,8 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 /**
  * @extends Factory<User>
@@ -24,12 +24,15 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $phone = '+7'.fake()->unique()->numerify('9#########');
+
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
-            'remember_token' => Str::random(10),
+            'phone_ciphertext' => Crypt::encryptString($phone),
+            'phone_hash' => hash('sha256', $phone),
+            'password_hash' => static::$password ??= Hash::make('password'),
+            'consented_at' => now(),
+            'consent_version' => 'test',
+            'activated_at' => now(),
         ];
     }
 
@@ -39,7 +42,7 @@ class UserFactory extends Factory
     public function unverified(): static
     {
         return $this->state(fn (array $attributes) => [
-            'email_verified_at' => null,
+            'consented_at' => null,
         ]);
     }
 }
