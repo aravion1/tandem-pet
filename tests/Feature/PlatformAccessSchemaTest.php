@@ -117,4 +117,18 @@ class PlatformAccessSchemaTest extends TestCase
             DB::statement('RESET ROLE');
         }
     }
+
+    public function test_sanctum_token_owner_uses_uuid_on_postgresql(): void
+    {
+        if (DB::getDriverName() !== 'pgsql') {
+            $this->markTestSkipped('Проверка типа Sanctum выполняется только в PostgreSQL.');
+        }
+
+        $type = DB::table('information_schema.columns')
+            ->where('table_name', 'personal_access_tokens')
+            ->where('column_name', 'tokenable_id')
+            ->value('data_type');
+
+        $this->assertSame('uuid', $type);
+    }
 }

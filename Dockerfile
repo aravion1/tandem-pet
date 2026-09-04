@@ -5,6 +5,8 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html
 
 RUN apt-get update \
-    && apt-get install --yes --no-install-recommends libonig-dev libpq-dev libsqlite3-dev libzip-dev \
+    && apt-get install --yes --no-install-recommends $PHPIZE_DEPS libonig-dev libpq-dev libsqlite3-dev libzip-dev \
     && docker-php-ext-install mbstring pdo_pgsql pdo_sqlite zip \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
     && rm -rf /var/lib/apt/lists/*

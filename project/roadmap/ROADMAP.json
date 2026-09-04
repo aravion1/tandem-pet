@@ -74,20 +74,20 @@
         {
           "ID": "TASK-004",
           "Контекст": "PHASE-01/TASK-004",
-          "Статус": "Заблокировано",
+          "Статус": "Выполнено",
           "Можно_параллельно_с_предыдущей": false,
           "Тип_исполнителя": "Backend",
           "Зависимости": [
             "TASK-001",
             "TASK-002"
           ],
-          "Причина_блокировки": "Нельзя безопасно реализовать приём файлов любых форматов и неограниченного размера без утверждённых лимитов, квоты и выбора драйвера хранилища.",
-          "Дата_начала": null,
-          "Дата_завершения": null,
-          "Ветка": null,
+          "Причина_блокировки": null,
+          "Дата_начала": "2026-09-04T09:59:46Z",
+          "Дата_завершения": "2026-09-04T10:57:54Z",
+          "Ветка": "TASK-004",
           "Коммит": null,
-          "Результат_тестов": null,
-          "Результат_ревью": null
+          "Результат_тестов": "PASS (qa-engineer): изолированный Docker PostgreSQL 17/Redis/Laravel/Vue/queue поднят; Redis worker обработал QueueHealthCheck; backup восстановлен в чистую БД; Laravel — 23 passed; Pint и PHP syntax — успешно.",
+          "Результат_ревью": "APPROVE (code-reviewer); APPROVE (security-reviewer): секреты только из .env, приватный volume, executables запрещены; ARCHITECTURE_APPROVED (architecture-guardian): PostgreSQL/Redis/Vue/Laravel разделены сервисами; OBSERVABILITY_APPROVED (observability-engineer): worker фиксирует выполнение job, проверяется health key. Риск неограниченного объёма файлов принят пользователем и документирован."
         }
       ]
     },
