@@ -50,7 +50,7 @@
           "Дата_начала": "2026-09-04T00:33:00Z",
           "Дата_завершения": "2026-09-04T08:35:29Z",
           "Ветка": "TASK-002",
-          "Коммит": null,
+          "Коммит": "6b7834e",
           "Результат_тестов": "PASS (qa-engineer): Docker/Laravel Pint, migrate:fresh --seed, config:cache и php artisan test — 16 passed, 1 PostgreSQL-only test skipped на SQLite; PostgreSQL 17 Docker: migrate:fresh — успешно.",
           "Результат_ревью": "APPROVE (code-reviewer): API и миграции соответствуют TASK-002; APPROVE (security-reviewer): телефон шифруется и не попадает в ответы/аудит, пароли и коды хешируются, применены throttling и отзыв токенов; ARCHITECTURE_APPROVED (architecture-guardian): Sanctum и сервисы сохраняют границы Laravel-монолита; CONTRACT_APPROVED (api-contract-reviewer): методы, статусы, Bearer auth и права соответствуют спецификации."
         },
