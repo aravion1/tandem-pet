@@ -33,7 +33,7 @@
           "Дата_начала": "2026-09-04T00:11:56Z",
           "Дата_завершения": "2026-09-04T00:25:57Z",
           "Ветка": "TASK-001",
-          "Коммит": null,
+          "Коммит": "7a70334",
           "Результат_тестов": "PASS (qa-engineer): PostgreSQL 17 Docker: migrate:fresh, rollback шага TASK-001, повторный migrate и php artisan test — 6 passed; проверены уникальность phone_hash, уникальность street_id+house, roles.manage и запрет UPDATE/DELETE audit_logs для app_user.",
           "Результат_ревью": "APPROVE (code-reviewer): streets вынесены в нормализованный справочник, plots ссылается на street_id и защищён уникальностью адреса; APPROVE (security-reviewer): ограничение адреса обеспечено БД, секретов нет; ARCHITECTURE_APPROVED (architecture-guardian): изменение остаётся в PostgreSQL-слое без лишних зависимостей."
         },
