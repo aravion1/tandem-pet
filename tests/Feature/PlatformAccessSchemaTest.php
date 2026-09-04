@@ -35,6 +35,30 @@ class PlatformAccessSchemaTest extends TestCase
         ]);
     }
 
+    public function test_street_and_house_identify_one_plot(): void
+    {
+        $streetId = (string) Str::uuid();
+
+        DB::table('streets')->insert([
+            'id' => $streetId,
+            'name' => 'Лесная',
+        ]);
+
+        DB::table('plots')->insert([
+            'id' => (string) Str::uuid(),
+            'street_id' => $streetId,
+            'house' => '10',
+        ]);
+
+        $this->expectException(QueryException::class);
+
+        DB::table('plots')->insert([
+            'id' => (string) Str::uuid(),
+            'street_id' => $streetId,
+            'house' => '10',
+        ]);
+    }
+
     public function test_chair_role_has_roles_manage_permission(): void
     {
         $chairRoleId = DB::table('roles')

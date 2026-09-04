@@ -12,10 +12,16 @@ return new class extends Migration
 
     public function up(): void
     {
+        Schema::create('streets', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('name', 255)->unique();
+        });
+
         Schema::create('plots', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('street', 255);
+            $table->foreignUuid('street_id')->constrained()->restrictOnDelete();
             $table->string('house', 64);
+            $table->unique(['street_id', 'house']);
         });
 
         Schema::create('roles', function (Blueprint $table) {
@@ -75,6 +81,7 @@ return new class extends Migration
         Schema::dropIfExists('permissions');
         Schema::dropIfExists('roles');
         Schema::dropIfExists('plots');
+        Schema::dropIfExists('streets');
 
         if (DB::getDriverName() === 'pgsql') {
             DB::statement('REVOKE ALL PRIVILEGES ON SCHEMA public FROM app_user');

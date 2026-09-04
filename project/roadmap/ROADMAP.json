@@ -31,11 +31,11 @@
           ],
           "Причина_блокировки": null,
           "Дата_начала": "2026-09-04T00:11:56Z",
-          "Дата_завершения": "2026-09-04T00:21:09Z",
+          "Дата_завершения": "2026-09-04T00:25:57Z",
           "Ветка": "TASK-001",
-          "Коммит": "dc5d24a",
-          "Результат_тестов": "PASS (qa-engineer): PostgreSQL 17 Docker: migrate:fresh, rollback шага TASK-001, повторный migrate и php artisan test — 5 passed; проверены уникальность phone_hash, права roles.manage и запрет UPDATE/DELETE audit_logs для app_user.",
-          "Результат_ревью": "APPROVE (code-reviewer): PostgreSQL-миграции и тесты соответствуют TASK-001; APPROVE (security-reviewer): phone_hash уникален, журнал аудита защищён от UPDATE/DELETE для app_user, секретов в коде нет; ARCHITECTURE_APPROVED (architecture-guardian): схема сохраняет границы Laravel/PostgreSQL и не добавляет API или лишние слои."
+          "Коммит": null,
+          "Результат_тестов": "PASS (qa-engineer): PostgreSQL 17 Docker: migrate:fresh, rollback шага TASK-001, повторный migrate и php artisan test — 6 passed; проверены уникальность phone_hash, уникальность street_id+house, roles.manage и запрет UPDATE/DELETE audit_logs для app_user.",
+          "Результат_ревью": "APPROVE (code-reviewer): streets вынесены в нормализованный справочник, plots ссылается на street_id и защищён уникальностью адреса; APPROVE (security-reviewer): ограничение адреса обеспечено БД, секретов нет; ARCHITECTURE_APPROVED (architecture-guardian): изменение остаётся в PostgreSQL-слое без лишних зависимостей."
         },
         {
           "ID": "TASK-002",

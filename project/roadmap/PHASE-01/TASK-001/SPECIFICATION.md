@@ -14,7 +14,7 @@ DBA
 
 ## Контракты данных
 
-`users(id UUID PK, phone_ciphertext TEXT, phone_hash CHAR(64) UNIQUE, password_hash TEXT NULL, consented_at TIMESTAMPTZ NULL, consent_version VARCHAR(64) NULL, activated_at TIMESTAMPTZ NULL, created_at, updated_at)`; `plots(id UUID PK, street VARCHAR(255), house VARCHAR(64))`; `user_plots(user_id, plot_id)` с составным PK; `roles`, `permissions(code UNIQUE)`, `role_permissions`, `user_roles`; `audit_logs(id UUID PK, actor_user_id NULL, action VARCHAR(100), entity_type VARCHAR(100), entity_id UUID NULL, payload JSONB, created_at)`. В `audit_logs` запрещены UPDATE и DELETE прикладной ролью БД.
+`users(id UUID PK, phone_ciphertext TEXT, phone_hash CHAR(64) UNIQUE, password_hash TEXT NULL, consented_at TIMESTAMPTZ NULL, consent_version VARCHAR(64) NULL, activated_at TIMESTAMPTZ NULL, created_at, updated_at)`; `streets(id UUID PK, name VARCHAR(255) UNIQUE)`; `plots(id UUID PK, street_id UUID FK, house VARCHAR(64), UNIQUE(street_id, house))`; `user_plots(user_id, plot_id)` с составным PK; `roles`, `permissions(code UNIQUE)`, `role_permissions`, `user_roles`; `audit_logs(id UUID PK, actor_user_id NULL, action VARCHAR(100), entity_type VARCHAR(100), entity_id UUID NULL, payload JSONB, created_at)`. В `audit_logs` запрещены UPDATE и DELETE прикладной ролью БД.
 
 ## Эндпоинты
 
