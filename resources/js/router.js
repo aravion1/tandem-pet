@@ -3,6 +3,7 @@ import ActivationForm from './components/ActivationForm.vue';
 import LoginForm from './components/LoginForm.vue';
 import WorkItemsPage from './components/WorkItemsPage.vue';
 import DiscussionsPage from './components/DiscussionsPage.vue';
+import PublicationsPage from './components/PublicationsPage.vue';
 
 const emptyPage = { template: '<div />' };
 
@@ -17,5 +18,6 @@ export default createRouter({
         { path: '/roles', component: emptyPage },
         { path: '/work-items', component: WorkItemsPage },
         { path: '/discussions', component: DiscussionsPage },
+        { path: '/publications', component: PublicationsPage },
     ],
 });
