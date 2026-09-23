@@ -10,11 +10,12 @@ export function apiMessage(payload, fallback = 'Не удалось выполн
 }
 
 export async function request(path, options = {}, token = null) {
+    const isFormData = options.body instanceof FormData;
     const response = await fetch(`/api/${path}`, {
         ...options,
         headers: {
             Accept: 'application/json',
-            ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+            ...(options.body && !isFormData ? { 'Content-Type': 'application/json' } : {}),
             ...(token ? { Authorization: `Bearer ${token}` } : {}),
             ...options.headers,
         },
