@@ -116,7 +116,7 @@
         {
           "ID": "TASK-006",
           "Контекст": "PHASE-02/TASK-006",
-          "Статус": "Запланировано",
+          "Статус": "На тестировании",
           "Можно_параллельно_с_предыдущей": false,
           "Тип_исполнителя": "Backend",
           "Зависимости": [
@@ -125,12 +125,12 @@
             "TASK-005"
           ],
           "Причина_блокировки": null,
-          "Дата_начала": null,
+          "Дата_начала": "2026-09-23T10:49:17Z",
           "Дата_завершения": null,
-          "Ветка": null,
+          "Ветка": "TASK-006",
           "Коммит": null,
-          "Результат_тестов": null,
-          "Результат_ревью": null
+          "Результат_тестов": "PASS (qa-engineer): Docker Laravel Pint; route:list — 11 маршрутов; php artisan test с изолированными SQLite/array-cache настройками — 31 passed, 2 PostgreSQL-only test skipped; PostgreSQL migrate:status — все миграции применены.",
+          "Результат_ревью": "APPROVE (code-reviewer): CRUD, переходы и Feature-тесты соответствуют TASK-006; APPROVE (security-reviewer): доступ и приватность проверяются серверно, вложения проходят через приватное хранилище, секреты/ПДн не раскрываются; ARCHITECTURE_APPROVED (architecture-guardian): логика сосредоточена в Laravel service, API/UI/Redis границы сохранены; CONTRACT_APPROVED (api-contract-reviewer): методы, пути, коды ошибок, Bearer auth и требуемые поля WorkItem соответствуют спецификации."
         },
         {
           "ID": "TASK-007",

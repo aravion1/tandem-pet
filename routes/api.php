@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\WorkItemController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('auth')->group(function (): void {
@@ -23,4 +24,16 @@ Route::middleware(['auth:sanctum'])->group(function (): void {
     Route::patch('roles/{role}', [RoleController::class, 'update'])->middleware('permission:roles.manage');
     Route::delete('roles/{role}', [RoleController::class, 'destroy'])->middleware('permission:roles.manage');
     Route::put('roles/{role}/permissions', [RoleController::class, 'replacePermissions'])->middleware('permission:roles.manage');
+
+    Route::get('work-items', [WorkItemController::class, 'index']);
+    Route::post('work-items', [WorkItemController::class, 'store']);
+    Route::get('work-items/{workItem}', [WorkItemController::class, 'show']);
+    Route::patch('work-items/{workItem}', [WorkItemController::class, 'update']);
+    Route::post('work-items/{workItem}/comments', [WorkItemController::class, 'comment']);
+    Route::post('work-items/{workItem}/attachments', [WorkItemController::class, 'attachment']);
+    Route::post('work-items/{workItem}/transition', [WorkItemController::class, 'transition']);
+    Route::post('work-items/{workItem}/convert', [WorkItemController::class, 'convert']);
+    Route::put('work-items/{workItem}/assignees', [WorkItemController::class, 'assignees']);
+    Route::post('work-items/{workItem}/time-entries', [WorkItemController::class, 'timeEntry']);
+    Route::post('work-items/{workItem}/budget-entries', [WorkItemController::class, 'budgetEntry']);
 });
