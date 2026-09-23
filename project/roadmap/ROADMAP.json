@@ -164,7 +164,7 @@
           "Дата_начала": "2026-09-23T11:07:09Z",
           "Дата_завершения": "2026-09-23T11:11:57Z",
           "Ветка": "TASK-008",
-          "Коммит": "PENDING",
+          "Коммит": "59673a4",
           "Результат_тестов": "PASS (qa-engineer): Laravel Pint; php artisan test с изолированными SQLite/array-cache настройками — 34 passed, 2 PostgreSQL-only test skipped.",
           "Результат_ревью": "APPROVE (code-reviewer); APPROVE (security-reviewer): приватность обсуждений и доступ участников проверяются серверно; ARCHITECTURE_APPROVED (architecture-guardian); CONTRACT_APPROVED (api-contract-reviewer)."
         },
