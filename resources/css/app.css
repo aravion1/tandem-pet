@@ -30,4 +30,14 @@
     .card span { @apply text-sm text-slate-600; }
     .secondary { @apply bg-slate-600; }
     .actions { @apply mb-3 flex flex-wrap gap-2; }
+    .section-heading { @apply mb-3 flex items-center justify-between gap-3; }
+    .discussions-layout { @apply grid gap-4 md:grid-cols-2; }
+    .discussion-list, .messages { @apply m-0 grid list-none gap-2 p-0; }
+    .discussion-link { @apply w-full bg-slate-100 text-left text-slate-900 hover:bg-slate-200; }
+    .discussion-link small { @apply block text-slate-600; }
+    .message { @apply rounded border border-slate-200 p-3; }
+    .message p { @apply my-0 mb-2; }
+    .message-actions { @apply flex flex-wrap gap-2; }
+    .closed-badge { @apply rounded bg-slate-200 px-2 py-1 text-sm; }
+    .verdict { @apply rounded bg-emerald-50 p-3 text-emerald-900; }
 }

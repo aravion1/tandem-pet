@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import ActivationForm from './components/ActivationForm.vue';
 import LoginForm from './components/LoginForm.vue';
 import WorkItemsPage from './components/WorkItemsPage.vue';
+import DiscussionsPage from './components/DiscussionsPage.vue';
 
 const emptyPage = { template: '<div />' };
 
@@ -15,5 +16,6 @@ export default createRouter({
         { path: '/residents', component: emptyPage },
         { path: '/roles', component: emptyPage },
         { path: '/work-items', component: WorkItemsPage },
+        { path: '/discussions', component: DiscussionsPage },
     ],
 });
