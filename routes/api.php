@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DiscussionController;
+use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WorkItemController;
@@ -47,4 +48,20 @@ Route::middleware(['auth:sanctum'])->group(function (): void {
     Route::post('messages/{message}/like', [DiscussionController::class, 'like']);
     Route::post('discussions/{discussion}/verdict', [DiscussionController::class, 'verdict']);
     Route::post('discussions/{discussion}/close', [DiscussionController::class, 'close']);
+
+    Route::get('news', [PublicationController::class, 'newsIndex']);
+    Route::post('news', [PublicationController::class, 'newsStore']);
+    Route::get('news/{news}', [PublicationController::class, 'newsShow']);
+    Route::patch('news/{news}', [PublicationController::class, 'newsUpdate']);
+    Route::post('news/{news}/publish', [PublicationController::class, 'newsPublish']);
+    Route::post('news/{news}/unpublish', [PublicationController::class, 'newsUnpublish']);
+    Route::post('news/{news}/attachments', [PublicationController::class, 'newsAttachment']);
+
+    Route::get('infoboards', [PublicationController::class, 'infoboardIndex']);
+    Route::post('infoboards', [PublicationController::class, 'infoboardStore']);
+    Route::get('infoboards/{infoboard}', [PublicationController::class, 'infoboardShow']);
+    Route::patch('infoboards/{infoboard}', [PublicationController::class, 'infoboardUpdate']);
+    Route::post('infoboards/{infoboard}/publish', [PublicationController::class, 'infoboardPublish']);
+    Route::post('infoboards/{infoboard}/unpublish', [PublicationController::class, 'infoboardUnpublish']);
+    Route::post('infoboards/{infoboard}/attachments', [PublicationController::class, 'infoboardAttachment']);
 });
