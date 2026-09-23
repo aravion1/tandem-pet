@@ -1,0 +1,3 @@
+interface:
+  display_name: "Business Collector"
+  short_description: "Сбор и уточнение бизнес-требований для ТЗ"

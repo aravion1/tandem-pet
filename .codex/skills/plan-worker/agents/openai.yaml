@@ -1,0 +1,3 @@
+interface:
+  display_name: "Plan Worker"
+  short_description: "Break specifications into implementation subtasks"

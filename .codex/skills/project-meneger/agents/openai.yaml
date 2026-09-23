@@ -1,0 +1,3 @@
+interface:
+  display_name: "Project Meneger"
+  short_description: "Управление статусами и зависимостями RoadMap"

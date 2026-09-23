@@ -1,0 +1,3 @@
+interface:
+  display_name: "Developer Worker"
+  short_description: "Implement documented development subtasks safely"

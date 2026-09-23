@@ -1,0 +1,3 @@
+interface:
+  display_name: "Project Orchestrator"
+  short_description: "Полный цикл задач, quality gates и релизная готовность"
