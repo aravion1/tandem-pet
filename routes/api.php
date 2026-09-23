@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\ResidentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\WorkItemController;
@@ -36,4 +37,14 @@ Route::middleware(['auth:sanctum'])->group(function (): void {
     Route::put('work-items/{workItem}/assignees', [WorkItemController::class, 'assignees']);
     Route::post('work-items/{workItem}/time-entries', [WorkItemController::class, 'timeEntry']);
     Route::post('work-items/{workItem}/budget-entries', [WorkItemController::class, 'budgetEntry']);
+
+    Route::get('discussions', [DiscussionController::class, 'index']);
+    Route::post('discussions', [DiscussionController::class, 'store']);
+    Route::get('discussions/{discussion}', [DiscussionController::class, 'show']);
+    Route::patch('discussions/{discussion}', [DiscussionController::class, 'update']);
+    Route::post('discussions/{discussion}/members', [DiscussionController::class, 'members']);
+    Route::post('discussions/{discussion}/messages', [DiscussionController::class, 'message']);
+    Route::post('messages/{message}/like', [DiscussionController::class, 'like']);
+    Route::post('discussions/{discussion}/verdict', [DiscussionController::class, 'verdict']);
+    Route::post('discussions/{discussion}/close', [DiscussionController::class, 'close']);
 });
