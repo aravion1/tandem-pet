@@ -10,7 +10,7 @@
 
 @layer base {
     body { @apply m-0 bg-slate-50 text-slate-950; }
-    button, input { font: inherit; }
+    button, input, select, textarea { font: inherit; }
 }
 
 @layer components {
@@ -20,7 +20,17 @@
     nav a { @apply rounded px-3 py-2 text-sm font-medium hover:bg-slate-200; }
     form, section { @apply mb-4 rounded-lg bg-white p-4 shadow-sm; }
     label { @apply mb-3 grid gap-1 text-sm font-medium; }
-    input { @apply min-h-11 rounded border border-slate-300 px-3; }
+    input, select, textarea { @apply min-h-11 rounded border border-slate-300 px-3; }
     button { @apply min-h-11 rounded bg-slate-900 px-4 font-medium text-white disabled:opacity-60; }
     [role='alert'] { @apply text-red-700; }
+    .section-heading { @apply mb-3 flex items-center justify-between gap-3; }
+    .discussions-layout { @apply grid gap-4 md:grid-cols-2; }
+    .discussion-list, .messages { @apply m-0 grid list-none gap-2 p-0; }
+    .discussion-link { @apply w-full bg-slate-100 text-left text-slate-900 hover:bg-slate-200; }
+    .discussion-link small { @apply block text-slate-600; }
+    .message { @apply rounded border border-slate-200 p-3; }
+    .message p { @apply my-0 mb-2; }
+    .message-actions { @apply flex flex-wrap gap-2; }
+    .closed-badge { @apply rounded bg-slate-200 px-2 py-1 text-sm; }
+    .verdict { @apply rounded bg-emerald-50 p-3 text-emerald-900; }
 }

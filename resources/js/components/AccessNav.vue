@@ -5,6 +5,7 @@ defineProps({ user: { type: Object, default: null } });
 <template>
     <nav v-if="user" aria-label="Управление">
         <RouterLink to="/">Главная</RouterLink>
+        <RouterLink to="/discussions">Обсуждения</RouterLink>
         <RouterLink v-if="user.permissions.includes('users.manage')" to="/residents">Жители</RouterLink>
         <RouterLink v-if="user.permissions.includes('roles.manage')" to="/roles">Роли</RouterLink>
     </nav>
