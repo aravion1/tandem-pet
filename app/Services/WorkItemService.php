@@ -207,7 +207,7 @@ final class WorkItemService
         $id = $item->id;
 
         return [
-            'id' => $id, 'kind' => $item->kind, 'title' => $item->title, 'description' => $item->description,
+            'id' => $id, 'created_by' => $item->created_by, 'kind' => $item->kind, 'title' => $item->title, 'description' => $item->description,
             'visibility' => $item->visibility, 'addressee' => $item->addressee_user_id === null ? null : ['id' => $item->addressee_user_id],
             'status' => $item->status, 'priority' => $item->priority, 'due_at' => $item->due_at,
             'assignees' => DB::table('work_assignees')->where('work_item_id', $id)->get(['user_id', 'external_name']),

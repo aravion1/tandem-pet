@@ -10,7 +10,7 @@
 
 @layer base {
     body { @apply m-0 bg-slate-50 text-slate-950; }
-    button, input { font: inherit; }
+    button, input, select, textarea { font: inherit; }
 }
 
 @layer components {
@@ -20,7 +20,14 @@
     nav a { @apply rounded px-3 py-2 text-sm font-medium hover:bg-slate-200; }
     form, section { @apply mb-4 rounded-lg bg-white p-4 shadow-sm; }
     label { @apply mb-3 grid gap-1 text-sm font-medium; }
-    input { @apply min-h-11 rounded border border-slate-300 px-3; }
+    input, select, textarea { @apply min-h-11 rounded border border-slate-300 px-3; }
     button { @apply min-h-11 rounded bg-slate-900 px-4 font-medium text-white disabled:opacity-60; }
     [role='alert'] { @apply text-red-700; }
+    .section-title { @apply flex items-center justify-between gap-3; }
+    fieldset { @apply mb-4 grid grid-cols-1 gap-2 border-0 p-0 sm:grid-cols-3; }
+    .work-list { @apply m-0 grid list-none gap-2 p-0; }
+    .card { @apply flex w-full flex-col items-start bg-white text-left text-slate-950 shadow-sm; }
+    .card span { @apply text-sm text-slate-600; }
+    .secondary { @apply bg-slate-600; }
+    .actions { @apply mb-3 flex flex-wrap gap-2; }
 }
