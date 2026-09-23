@@ -109,7 +109,7 @@
           "Дата_начала": "2026-09-23T10:30:05Z",
           "Дата_завершения": "2026-09-23T10:45:19Z",
           "Ветка": "TASK-005",
-          "Коммит": "3396f83",
+          "Коммит": "2f3665a",
           "Результат_тестов": "PASS (self/qa): PostgreSQL Docker migrate:fresh, rollback шага TASK-005 и повторный migrate — успешно; Laravel Pint — успешно; php artisan test с изолированными SQLite/array-cache настройками — 25 passed, 2 PostgreSQL-only test skipped.",
           "Результат_ревью": "APPROVE (code-reviewer): миграция и тесты соответствуют TASK-005; APPROVE (security-reviewer): ограничения БД, внешние ключи и приватное файловое хранение не ослаблены, секретов и ПДн в коде нет; ARCHITECTURE_APPROVED (architecture-guardian): изменения ограничены слоем PostgreSQL/Laravel migrations, API и UI не затронуты."
         },
